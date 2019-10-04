@@ -17,10 +17,14 @@ namespace OCRProgrammingProject
         //This is a private async method meaning it is only accessible from within this class. Async methods are awaited which means C# waits for completion before continuing with code execution.
         private static async Task CreateXML()
         {
-            //Checks to see if file does not already exist in root app directory and creates it if it does not
+            //Checks to see if file does not already exist in root app directory and creates it if it does not.
             if (!File.Exists("UserList.xml"))
             {
-                XMLHelper.GenerateAuthorisedUsers(); //Generates the UserList XML from the XMLHelper Class.
+                await XMLHelper.GenerateAuthorisedUsers(); //Generates the UserList XML from the XMLHelper Class.
+            }
+            else
+            {
+                await XMLHelper.CheckUserDetails("adam", "test");
             }
         }
     }

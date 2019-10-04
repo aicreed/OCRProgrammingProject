@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace OCRProgrammingProject
 {
@@ -14,5 +15,10 @@ namespace OCRProgrammingProject
         public string Username { get; set; }
         public string Password { get; set; }
        
+    }
+    public class Users //This class is used for XML Deserialisation.
+    {
+        [XmlElement("User")]
+        public List<User> userList = new List<User>();
     }
 }
