@@ -40,7 +40,7 @@ namespace ProgrammingProject.Model
             }
             if (user.Password == Password)
             {
-                //App Opens Here.
+                SongGuess.Start();
                 CurrentUser = user;
             }
             else

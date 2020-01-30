@@ -14,7 +14,7 @@ namespace ProgrammingProject
             Console.WriteLine("");
             var context = new AppDBContext();
             var currentScore = AuthenticationService.GetScore(AuthenticationService.CurrentUser);
-            
+
 
             //Get Random Song
             var song = context.Songs
