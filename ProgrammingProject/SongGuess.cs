@@ -20,6 +20,8 @@ namespace ProgrammingProject
             var song = context.Songs
                 .OrderBy(r => Guid.NewGuid()).Take(5)
                 .FirstOrDefault();
+
+
             Console.WriteLine("Artist: " + song.Artist);
             Console.WriteLine("Title: " + song.Name.ToCharArray()[0]);
             Console.WriteLine("What is the song's name?");
