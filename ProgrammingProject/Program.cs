@@ -35,7 +35,7 @@ namespace ProgrammingProject
             AuthenticationService.Authenticate(username, password);
             Console.WriteLine("Welcome " + AuthenticationService.CurrentUser + "!");
             Console.WriteLine("");
-            Console.Read();
+            SongGuess.Start();
 
 
 
