@@ -13,6 +13,8 @@ namespace ProgrammingProject
         {
             Console.WriteLine("");
             var context = new AppDBContext();
+            var currentScore = AuthenticationService.GetScore(AuthenticationService.CurrentUser);
+            
 
             //Get Random Song
             var song = context.Songs
@@ -27,6 +29,7 @@ namespace ProgrammingProject
             if (userAnswer == song.Name)
             {
                 Console.WriteLine("Correct! Press ENTER or RETURN to try another. ");
+                AuthenticationService.AddScore(AuthenticationService.CurrentUser, currentScore);
                 var enter = Console.ReadLine();
                 if (enter == "")
                 {

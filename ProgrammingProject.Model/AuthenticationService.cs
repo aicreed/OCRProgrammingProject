@@ -9,7 +9,24 @@ namespace ProgrammingProject.Model
 {
     public class AuthenticationService
     {
-        public static string CurrentUser { get; set; }
+        public static User CurrentUser { get; set; }
+        public static int GetScore(User currentUser)
+        {
+            var context = new AppDBContext();
+            var user = context.Users
+              .Where(u => u.Username == currentUser.Username)
+              .FirstOrDefault();
+            return user.Score;
+        }
+        public static void AddScore(User currentUser, int currentScore)
+        {
+            var context = new AppDBContext();
+            var user = context.Users
+               .Where(u => u.Username == currentUser.Username)
+               .FirstOrDefault();
+            user.Score = currentScore + 1;
+            context.SaveChanges();
+        }
         public static void Authenticate(string Username, string Password)
         {
             var context = new AppDBContext();
@@ -24,7 +41,7 @@ namespace ProgrammingProject.Model
             if (user.Password == Password)
             {
                 //App Opens Here.
-                CurrentUser = user.FirstName + " " + user.LastName;
+                CurrentUser = user;
             }
             else
             {

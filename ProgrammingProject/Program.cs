@@ -33,7 +33,7 @@ namespace ProgrammingProject
             var password = Console.ReadLine();
             Console.Clear();
             AuthenticationService.Authenticate(username, password);
-            Console.WriteLine("Welcome " + AuthenticationService.CurrentUser + "!");
+            Console.WriteLine("Welcome " + AuthenticationService.CurrentUser.FirstName + " " + AuthenticationService.CurrentUser.FirstName + "!");
             Console.WriteLine("");
             SongGuess.Start();
 
