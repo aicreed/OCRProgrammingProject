@@ -10,6 +10,7 @@ namespace ProgrammingProject.Model
     public class AuthenticationService
     {
         public static User CurrentUser { get; set; }
+        public static bool IsUserAuthenticated { get; set; }
         public static int GetScore(User currentUser)
         {
             var context = new AppDBContext();
@@ -40,8 +41,10 @@ namespace ProgrammingProject.Model
             }
             if (user.Password == Password)
             {
-                SongGuess.Start();
                 CurrentUser = user;
+                Console.WriteLine("Welcome " + AuthenticationService.CurrentUser.FirstName + " " + AuthenticationService.CurrentUser.LastName + "!");
+                Console.WriteLine("");
+                SongGuess.Start(); 
             }
             else
             {

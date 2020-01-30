@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProgrammingProject.Model;
 
-namespace ProgrammingProject
+namespace ProgrammingProject.Model
 {
     public class SongGuess
     {
@@ -28,7 +28,7 @@ namespace ProgrammingProject
             Console.WriteLine("");
             Console.Write("Guess: ");
             var userAnswer = Console.ReadLine();
-            if (userAnswer == song.Name)
+            if (userAnswer.ToLower() == song.Name.ToLower())
             {
                 Console.WriteLine("Correct! Press ENTER or RETURN to try another. ");
                 AuthenticationService.AddScore(AuthenticationService.CurrentUser, currentScore);

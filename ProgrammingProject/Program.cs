@@ -12,6 +12,10 @@ namespace ProgrammingProject
     {
         static void Main(string[] args)
         {
+            StartUp();
+        }
+        public static void StartUp()
+        {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             if (!File.Exists("ProgrammingProject.Model.AppDBContext.sdf"))
             {
@@ -27,14 +31,19 @@ namespace ProgrammingProject
             Console.WriteLine("");
             Console.WriteLine("Please Authenticate");
             Console.WriteLine("");
+#if DEBUG
+            Console.Clear();
+            AuthenticationService.Authenticate("Admin", "test123");
+#else
             Console.Write("Username: ");
             var username = Console.ReadLine();
             Console.Write("Password: ");
             var password = Console.ReadLine();
             Console.Clear();
             AuthenticationService.Authenticate(username, password);
-            Console.WriteLine("Welcome " + AuthenticationService.CurrentUser.FirstName + " " + AuthenticationService.CurrentUser.LastName + "!");
-            Console.WriteLine("");
+#endif
+
+
 
 
 
