@@ -11,7 +11,7 @@ namespace ProgrammingProject.Model
     {
         public static User CurrentUser { get; set; }
         public static bool IsUserAuthenticated { get; set; }
-        public static int GetScore(User currentUser)
+        public static int GetScore(User currentUser) //This method gets the current score from the database for the user.
         {
             var context = new AppDBContext();
             var user = context.Users
@@ -19,7 +19,7 @@ namespace ProgrammingProject.Model
               .FirstOrDefault();
             return user.Score;
         }
-        public static void AddScore(User currentUser, int currentScore)
+        public static void AddScore(User currentUser, int currentScore) //This method adds the score and saves to database.
         {
             var context = new AppDBContext();
             var user = context.Users
@@ -28,23 +28,24 @@ namespace ProgrammingProject.Model
             user.Score = currentScore + 1;
             context.SaveChanges();
         }
+        //Login / Authentication System
         public static void Authenticate(string Username, string Password)
         {
-            var context = new AppDBContext();
+            var context = new AppDBContext(); // Creates a new instance of the database context.
             var user = context.Users
                 .Where(u => u.Username == Username)
-                .FirstOrDefault();
+                .FirstOrDefault(); //Queries the database for user matching inputted username.
 
-            if (user == null)
+            if (user == null) //If the query returns null the user does not exist in the database.
             {
                 Console.WriteLine("User not found");
             }
-            if (user.Password == Password)
+            if (user.Password == Password) //If both username and password match, user is logged in.
             {
-                CurrentUser = user;
+                CurrentUser = user; //Sets the current user for the app.
                 Console.WriteLine("Welcome " + AuthenticationService.CurrentUser.FirstName + " " + AuthenticationService.CurrentUser.LastName + "!");
                 Console.WriteLine("");
-                SongGuess.Start(); 
+                SongGuess.Start();  //Starts the song guessing logic.
             }
             else
             {
