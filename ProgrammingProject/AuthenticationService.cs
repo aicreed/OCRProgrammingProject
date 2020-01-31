@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProgrammingProject.Model;
 
-namespace ProgrammingProject.Model
+namespace ProgrammingProject
 {
     public class AuthenticationService
     {

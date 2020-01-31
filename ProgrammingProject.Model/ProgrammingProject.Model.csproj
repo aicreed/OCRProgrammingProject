@@ -57,12 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationService.cs" />
     <Compile Include="DBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seed.cs" />
     <Compile Include="Song.cs" />
-    <Compile Include="SongGuess.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
