@@ -43,9 +43,7 @@ namespace ProgrammingProject
             if (user.Password == Password) //If both username and password match, user is logged in.
             {
                 CurrentUser = user; //Sets the current user for the app.
-                Console.WriteLine("Welcome " + AuthenticationService.CurrentUser.FirstName + " " + AuthenticationService.CurrentUser.LastName + "!");
-                Console.WriteLine("");
-                SongGuess.Start();  //Starts the song guessing logic.
+                AppStart.SelectionScreen();  //Starts the selection screen.
             }
             else
             {
