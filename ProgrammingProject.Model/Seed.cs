@@ -8,7 +8,7 @@ namespace ProgrammingProject.Model
 {
     public class Seed
     {
-        // Sam
+        // Sample Data used to seed database
         public static void SampleData()
         {
             var context = new AppDBContext();
