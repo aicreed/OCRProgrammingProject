@@ -12,7 +12,7 @@ namespace ProgrammingProject
         public static int _guesses { get; set; }
         public static void Start()
         {
-            if(_guesses != 2)
+            if (_guesses != 2)
             {
                 Console.WriteLine("");
                 var context = new AppDBContext();
@@ -58,9 +58,17 @@ namespace ProgrammingProject
             else
             {
                 Console.WriteLine("Game over! Maximum amount of guesses reached. ");
-                Console.Read();
+                Console.WriteLine("");
+                Console.WriteLine("Pess ENTER or RETURN to continue. ");
+                var enter = Console.ReadLine();
+                if (enter == "")
+                {
+                    Console.Clear();
+                    AppStart.SelectionScreen();
+                }
+
             }
-           
+
         }
     }
 }
