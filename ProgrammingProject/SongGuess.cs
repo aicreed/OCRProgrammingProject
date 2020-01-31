@@ -64,6 +64,7 @@ namespace ProgrammingProject
                 if (enter == "")
                 {
                     Console.Clear();
+                    _guesses = 0;
                     AppStart.SelectionScreen();
                 }
 
