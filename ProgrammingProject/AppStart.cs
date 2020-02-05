@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProgrammingProject.Model;
 
 namespace ProgrammingProject
 {
@@ -28,9 +29,21 @@ namespace ProgrammingProject
             }
             else if (input == "2")
             {
-                //ToDo: Leaderboards.
                 Console.Clear();
-                SelectionScreen();
+                var context = new AppDBContext();
+                var users = context.Users
+                    .Where(u => u.Score > 1 || u.Score == 1)
+                    .ToList();
+                foreach(var user in users)
+                {
+                    Console.WriteLine(user.Username + " " + user.Score);
+                }
+                var enter = Console.ReadLine();
+                if (enter == "")
+                {
+                    Console.Clear();
+                    SelectionScreen();
+                }
             }
             else if (input == "3")
             {

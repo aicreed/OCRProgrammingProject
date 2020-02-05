@@ -36,7 +36,7 @@ namespace ProgrammingProject
                 if (userAnswer.ToLower() == song.Name.ToLower())//Converting both to lower case - means user can input in any case and will not effect answer.
                 {
                     Console.WriteLine("Correct! Press ENTER or RETURN to try another. ");
-                    AuthenticationService.AddScore(AuthenticationService.CurrentUser, currentScore);
+                    AuthenticationService.AddScore(AuthenticationService.CurrentUser, currentScore); 
                     var enter = Console.ReadLine();
                     if (enter == "")
                     {

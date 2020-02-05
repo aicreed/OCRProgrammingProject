@@ -35,6 +35,9 @@ namespace ProgrammingProject.Model
             var song17 = new Song { Name = "Echoes", Artist = "Pink Floyd" };
             var song18 = new Song { Name = "On the Turning Away", Artist = "Pink Floyd" };
             var song19 = new Song { Name = "Dogs of War", Artist = "Pink Floyd" };
+            var song20 = new Song { Name = "Paranoid", Artist = "Black Sabbeth" };
+            var song21 = new Song { Name = "Iron Man", Artist = "Black Sabbeth" };
+            var song22 = new Song { Name = "Layla", Artist = "Eric Clapton" };
             //Add entities to database
             context.Users.Add(adam);
             context.Users.Add(admin);
@@ -57,6 +60,9 @@ namespace ProgrammingProject.Model
             context.Songs.Add(song17);
             context.Songs.Add(song18);
             context.Songs.Add(song19);
+            context.Songs.Add(song20);
+            context.Songs.Add(song21);
+            context.Songs.Add(song22);
             context.SaveChanges();
 
         }
